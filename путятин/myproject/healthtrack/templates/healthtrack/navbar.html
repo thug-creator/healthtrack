@@ -1,0 +1,20 @@
+<!-- myproject/templates/healthtrack/navbar.html -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'overview' %}">HealthTrack</a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="{% url 'overview' %}">Обзор</a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        {% if user.is_authenticated %}
+            {{ user.username }}
+        {% else %}
+            <a href="{% url 'login' %}" class="text-white">Войти</a>
+        {% endif %}
+      </span>
+    </div>
+  </div>
+</nav>
